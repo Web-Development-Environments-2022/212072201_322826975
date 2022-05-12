@@ -717,17 +717,17 @@ function NewRound(){
 	options[2]=[19,0];	
 	options[3]=[19,9];
 
-	if (monsters_num==4)
+	if (current_monsters_num==4)
 	{
 		arr=options;
 	}
 
-	if (monsters_num==1)
+	if (current_monsters_num==1)
 	{
 		var rand = Math.floor(Math.random()*4);
 		arr[0]=options[rand];
 	}
-	if (monsters_num==3)
+	if (current_monsters_num==3)
 	{
 		var rand = Math.floor(Math.random()*4);
 		if (rand==0){
@@ -751,7 +751,7 @@ function NewRound(){
 			arr[2]=options[2];
 		}	
 	}
-	if (monsters_num==2)
+	if (current_monsters_num==2)
 	{
 		var rand1 = Math.floor(Math.random()*4);
 		arr[0]=options[rand1];
