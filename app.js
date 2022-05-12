@@ -603,17 +603,17 @@ function Start() {
 		monsters[m]=new Object();
 	}
 	lives=5;
-	live1.src = 'images/life_true.png';
+	live1.src = 'images/life_true.PNG';
 	live1.width=50;
-	live2.src = 'images/life_true.png';
+	live2.src = 'images/life_true.PNG';
 	live2.width=50;
-	live3.src = 'images/life_true.png';
+	live3.src = 'images/life_true.PNG';
 	live3.width=50;
-	live4.src = 'images/life_true.png';
+	live4.src = 'images/life_true.PNG';
 	live4.width=50;
-	live5.src = 'images/life_true.png';
+	live5.src = 'images/life_true.PNG';
 	live5.width=50;
-	food_img.src = 'images/food.png' 
+	food_img.src = 'images/food.PNG' 
 	food=new Object();
 	food.i=5;
 	food.j=0;
@@ -1360,18 +1360,18 @@ function KillLife()
 		}
 		if (lives==4)
 		{
-			live5.src = 'images/life_false.png';
+			live5.src = 'images/life_false.PNG';
 		}
 		else if (lives==3)
 		{
-			live4.src = 'images/life_false.png';
+			live4.src = 'images/life_false.PNG';
 		}
 		else if (lives==2)
 		{
-			live3.src = 'images/life_false.png';		
+			live3.src = 'images/life_false.PNG';		
 		}
 		else{
-			live2.src = 'images/life_false.png';		
+			live2.src = 'images/life_false.PNG';		
 		}
 
 		NewRound();

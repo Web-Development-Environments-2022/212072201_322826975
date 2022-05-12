@@ -227,7 +227,7 @@ body {
   color:white;
   
 }
-#topOfCanvas, #game{
+#topOfCanvas, #canvas{
   border-color:#00ffff;
 }
 #settings_Style .submitButton:hover{
@@ -235,7 +235,7 @@ body {
   color: black;
 }
 
-#settings_Style, #topOfCanvas, #game
+#settings_Style, #topOfCanvas, #canvas
 {
   background: transparent;
   box-sizing: border-box;
