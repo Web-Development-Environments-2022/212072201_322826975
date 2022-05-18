@@ -203,25 +203,34 @@
 								</div>
 								<br>
 								<div id="game" style="display: none;" >	
-									<canvas id="canvas" height="600" width="900"></canvas>	
+									<canvas id="canvas" height="600" width="900"></canvas>
+									<br><br>
+
+									 	
 								</div>	
+								<div id="youarebetter" style="display: none; color:white">
+                                    <btr>You are better then: <span id="outputPoints" style="color:red">____</span> points! </btr>
+                                </div>
+
 								<div id="winner" style="display: none;">	
 									<img width="800" height="400" src = "images/winner.png">	
 								</div>	
 								<div id="loser"  style="display: none;">	
 									<img width="800" height="400" src = "images/loser.png">	
 								</div>	
-								<button id="resetbutton" style="display: none;" onclick ="newGame()">Reset Game</button>	
+								<input id="resetbutton" style="display:none;" class="submitButton" onclick ="resetButton()" value="Reset Game">	
+
 							</td>	
 							<td width="5%">&nbsp;</td>
 
-					
+				
 						</tr>	
 					</table>	
 						
 						
 				</div>
-				<div id="modal" class="modalDialog">
+				
+				<dialog id="modal" class="newmodalDialog">
 
 					<div class="insidemodalDialog">
 						<span onclick="closeModal()" class="close">&times;</span>
@@ -238,7 +247,7 @@
 						</span>
 					</div>
 					
-				</div>
+				</dialog>
 					
 
 				</div>

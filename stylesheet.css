@@ -276,6 +276,14 @@ p{
   top: 0;
 }
 
+.newmodalDialog {
+  left: 0;
+  top: 0;
+  padding-top: 150px; 
+
+  background-color: rgba(0, 0, 0, 0.641);
+}
+
 .insidemodalDialog {
   background-color: black;
   margin: auto;
@@ -293,4 +301,21 @@ p{
 
 .insidemodalDialog h3, .insidemodalDialog span{
   color:rgb(249, 177, 45);
+}
+
+#resetbutton
+
+{  color:#00ffff;
+  border-color:#00ffff;
+  width: 20%;
+  margin-left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+#resetbutton:hover
+{  
+  background-color:#00ffff;
+  color:white;
+  
 }

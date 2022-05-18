@@ -76,6 +76,8 @@ function divswitch(wind){
 			LogInFrame.style.display == "block" ? "none" : "none"); 	
 		GameFrame.style.display = (	
 			GameFrame.style.display == "block" ? "none" : "none"); 	
+			resetButton();
+
 	}
 	if (wind ==2){
 		colorMenu(2);
@@ -87,6 +89,8 @@ function divswitch(wind){
 			LogInFrame.style.display == "block" ? "none" : "none"); 	
 		GameFrame.style.display = (	
 			GameFrame.style.display == "block" ? "none" : "none"); 	
+			resetButton();
+
 	}
 	if (wind ==3){
 		colorMenu(3);
@@ -98,6 +102,8 @@ function divswitch(wind){
 			LogInFrame.style.display == "none" ? "block" : "block"); 	
 		GameFrame.style.display = (	
 			GameFrame.style.display == "block" ? "none" : "none"); 	
+			resetButton();
+
 	}
 	if (wind==4){
 		WindowFrame.style.display = (	
@@ -108,16 +114,20 @@ function divswitch(wind){
 			LogInFrame.style.display == "block" ? "none" : "none"); 	
 		GameFrame.style.display = (	
 			GameFrame.style.display == "none" ? "block" : "block"); 	
+			
 }
 	if (wind ==5){
-		var modal = document.getElementById("modal");
-		modal.style.display = "block";
+		// var modal = document.getElementById("modal");
+		// modal.style.display = "block";
+		var m = document.getElementById("modal");
+		m.open=true;
 	}
+	
 }
 
 function closeModal(){
 	var modal = document.getElementById("modal");
-		modal.style.display = "none";
+		modal.open = false;
 }
 function colorMenu(value){
 	var windowmenu = document.getElementById("welcome-menu");
@@ -147,7 +157,7 @@ function colorMenu(value){
 
 window.onclick = function(event) {
 	if (event.target == modal) {
-		modal.style.display = "none";
+		modal.open = false;
 	}
 }
 
@@ -180,7 +190,8 @@ function applySettings(){
     var flag_monster=false;	
     var flag_balls=false;	
     var err = document.getElementById("balls_error");	
-
+	var Imbetter = document.getElementById("youarebetter");
+	
 
 	if (document.getElementById("U").value=="")
 		UP = 38;
@@ -227,7 +238,7 @@ function applySettings(){
 		Iwon.style.display =(
 			Iwon.style.display == "block" ? "none" : "none"); 
 		rst.style.display =(
-			rst.style.display == "block" ? "none" : "none"); 
+			rst.style.display == "none" ? "block" : "block"); 
 		document.getElementById("outputNMonsters").innerText = monsters_num;
 		document.getElementById("outputNfruits").innerText = txt;
 		showmnstr.style.display =(
@@ -251,6 +262,8 @@ function applySettings(){
 		clr3.style.display =(
 			clr3.style.display ==  "block" ? "none" : "none");
 		
+			Imbetter.style.display =(
+				Imbetter.style.display == "block" ? "none" : "none");
 		
 		fiver.style.display =(
 			fiver.style.display ==  "none" ? "inline-block" : "inline-block");
@@ -347,6 +360,8 @@ function rand(){
 	current_monsters_num=monsters_num;
     var flag_monster=false;	
     var flag_balls=false;	
+	var Imbetter = document.getElementById("youarebetter");
+
 	scr.style.display =(
 		scr.style.display == "none" ? "block" : "block"); 
 	tm.style.display =(
@@ -357,8 +372,9 @@ function rand(){
 		Ilost.style.display == "block" ? "none" : "none"); 
 	Iwon.style.display =(
 		Iwon.style.display == "block" ? "none" : "none"); 
-	rst.style.display =(
-		rst.style.display = "block" ? "none" : "none"); 
+	rst.style.display =	(
+		rst.style.display == "none" ? "block" : "block"); 
+ 
 	document.getElementById("outputNMonsters").innerText = monsters_num;
 	document.getElementById("outputNfruits").innerText = txt;
 	showmnstr.style.display =(
@@ -400,6 +416,8 @@ function rand(){
 	var ctx = twentyfive.getContext("2d");
 	ctx.fillStyle = color3;
 	ctx.fillRect(1, 1,50,26.99)
+	Imbetter.style.display =(
+		Imbetter.style.display == "block" ? "none" : "none");
 
 	var stbutton= document.getElementById("setSettingsButton");
 	stbutton.style.display =(
@@ -483,6 +501,10 @@ function newGame(){
 	var showdownB = document.getElementById("showD");	
 	var showrightB = document.getElementById("showR");	
 	var showleftB = document.getElementById("showL");
+	var Imbetter = document.getElementById("youarebetter");
+	Imbetter.style.display =(
+		Imbetter.style.display == "block" ? "none" : "none");
+
 	gm.style.display =(
 		gm.style.display == "none" ? "block" : "block"); 
 	Ilost.style.display =(
@@ -490,7 +512,7 @@ function newGame(){
 	Iwon.style.display =(
 		Iwon.style.display == "block" ? "none" : "none"); 
 	rst.style.display =(
-		rst.style.display = "block" ? "none" : "none"); 
+		rst.style.display = "none" ? "block" : "none"); 
 	fiver.style.display =(
 		fiver.style.display ==  "inline-block" ? "none" : "none");
 	fiftiner.style.display =(
@@ -584,8 +606,8 @@ $(document).ready(function() {
 			keysDown[e.keyCode] = false;
 			if (e.keyCode==27)
 			{
-				if(modal.style.display == "block")
-					modal.style.display="none";
+				if(modal.open == true)
+					modal.open=false;
 			}
 		},
 		false
@@ -601,7 +623,6 @@ function isWall(i,j){
 
 function Start() {
 	song = new Audio(song_path);
-
 	song.play();
 	
 	board = new Array();
@@ -704,7 +725,26 @@ function Start() {
 	var random_square = free_space[random_number];	
 	board[random_square[0]][random_square[1]] = "heal";	
 	points_location[random_square[0]][random_square[1]] = "heal";
-	
+	if (pacman_remain==1)
+	{
+		var random_number_for_pac = Math.floor(Math.random() * (free_space.length - 0 + 1)) + 0;	
+		while (random_number_for_pac== random_number){
+
+			var random_number_for_pac = Math.floor(Math.random() * (free_space.length - 0 + 1)) + 0;
+			if ((random_number_for_pac[0]==0 && random_number_for_pac[1]==0)|| ((random_number_for_pac[0]==0 && random_number_for_pac[1]==19)) || ((random_number_for_pac[0]==19 && random_number_for_pac[1]==0)) || ((random_number_for_pac[0]==19 && random_number_for_pac[1]==19))){	
+				continue;	
+			}
+			break;
+		}
+		var random_square_for_pac = free_space[random_number_for_pac];	
+		
+		shape.i = random_square_for_pac[0];
+		shape.j = random_square_for_pac[1];
+		pacman_remain--;
+		board[random_square_for_pac[0]][random_square_for_pac[1]] =2;
+		points_location[random_square_for_pac[0]][random_square_for_pac[1]] = 0;
+	}
+
 	while (food_remain > 0) {
 		var emptyCell = findRandomEmptyCell(board);
 		var chosen_color= choose_color();	
@@ -720,6 +760,19 @@ function Start() {
 		food_remain--;
 	}
 	createIntervals();
+
+}
+function betterThen(){
+	var ImBetter = document.getElementById("youarebetter");
+	var gm = document.getElementById("game");
+	var rst = document.getElementById("resetbutton");
+	document.getElementById("outputPoints").innerText = score;
+	ImBetter.style.display =(
+		ImBetter.style.display == "none" ? "block" : "block"); 
+	gm.style.display =(
+		gm.style.display == "block" ? "none" : "none"); 
+	rst.style.display =(
+		rst.style.display == "none" ? "inline-block" : "inline-block"); 
 
 }
 
@@ -937,6 +990,7 @@ function choose_color(){
     }
 }
 
+
 function UpdatePosition() {
 	board[shape.i][shape.j] = points_location[shape.i][shape.j];
 	var x = GetKeyPressed();
@@ -1022,8 +1076,8 @@ function UpdatePosition() {
 		{
 			lblScore.value = score;	
 			lblTime.value=60-(currentTime - start_time) / 1000;	
+			betterThen();
 			// window.alert("You are better than "+ score+" points!");
-			loser();
 			endGame();
 		}
 		else
@@ -1073,8 +1127,8 @@ function win(){
 		Iwon.style.display == "none" ? "block" : "block"); 
 	gm.style.display =(
 		gm.style.display == "block" ? "none" : "none"); 
-	rst.style.display =(
-		rst.style.display == "none" ? "inline-block" : "inline-block"); 
+	// rst.style.display =(
+	// 	rst.style.display == "none" ? "inline-block" : "inline-block"); 
 
 }
 
@@ -1086,8 +1140,7 @@ function loser(){
 		Ilost.style.display == "none" ? "block" : "block"); 
 	gm.style.display =(
 		gm.style.display == "block" ? "none" : "none"); 
-	rst.style.display =(
-		rst.style.display == "none" ? "inline-block" : "inline-block"); 
+	// rst.style.display =(rst.style.display == "none" ? "inline-block" : "inline-block");
 }
 
 function moveMonster()
@@ -1606,7 +1659,7 @@ function createIntervals(){
 function endGame()
 {
 	song.pause();
-	keysDown={}
+	keysDown={};
 	window.clearInterval(interval);
 	window.clearInterval(monsters_interval);
 	window.clearInterval(food_interval);
@@ -1649,4 +1702,9 @@ function signup(){
 	}
 	window.alert("User already exists");
 
+}
+
+function resetButton(){
+	endGame();
+	newGame();
 }
