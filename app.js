@@ -1489,18 +1489,18 @@ function AddLife()
 		
 	if (lives==5)	
 	{	
-		live5.src = 'images/life_true.png';	
+		live5.src = 'images/life_true.PNG';	
 	}	
 	else if (lives==4)	
 	{	
-		live4.src = 'images/life_true.png';	
+		live4.src = 'images/life_true.PNG';	
 	}	
 	else if (lives==3)	
 	{	
-		live3.src = 'images/life_true.png';			
+		live3.src = 'images/life_true.PNG';			
 	}	
 	else{	
-		live2.src = 'images/life_true.png';			
+		live2.src = 'images/life_true.PNG';			
 	}	
 }	
 
